@@ -28,7 +28,6 @@ export class Board {
   };
 
   create() {
-    console.log(`create the board`);
     const r = this.rows;
     const c = this.cols;
 

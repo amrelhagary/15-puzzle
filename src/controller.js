@@ -4,11 +4,6 @@ import { Tile } from "./model";
 
 export class Controller {
 
-  // constructor(boardModel, boardView) {
-  //   this.boardModel = boardModel;
-  //   this.boardView = boardView;
-  // }
-
   constructor(conf) {
     this.boardModel = conf.boardModel;
     this.boardView = conf.boardView;
@@ -17,7 +12,6 @@ export class Controller {
 
 
   startGame() {
-    console.log('start new game');
     this.resetMoves();
     this.boardView.setController(this);
     this.boardView.render(this.boardModel.create());
@@ -40,7 +34,7 @@ export class Controller {
     }
 
     if (this.checkIfWinner()) {
-      alert("Congratulations! You solved the puzzle in " + moves + " moves.");
+      alert(`Congratulations! You solved the puzzle in ${this.movesElement.textContent} moves.`);
       this.startGame();
     }
 
@@ -77,6 +71,7 @@ export class Controller {
       const oldPos = arrayForBoard[rowCoordinate][columnCoordinate].value;
 
       if (newPos == 0) {
+        //swap the oldPos with newPos
         arrayForBoard[rowCoordinate + rowOffset][columnCoordinate + columnOffset].value = oldPos;
         arrayForBoard[rowCoordinate][columnCoordinate].value = newPos;
         this.boardModel.tiles = arrayForBoard;

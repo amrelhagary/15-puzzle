@@ -9,10 +9,7 @@ import { BoardView } from './view';
 try {
     var targetElement = document.getElementById('root');
     var movesElement = document.getElementById('moves');
-    var cols = document.getElementById('cols');
-    var rows = document.getElementById('rows');
-
-    var boardModel = new Board(3, 3);
+    var boardModel = new Board(4, 4);
     var boardView = new BoardView(targetElement);
 
     var conf = {
