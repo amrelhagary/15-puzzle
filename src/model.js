@@ -21,11 +21,11 @@ export class Board {
 
   getBoard() {
     return this.arrayForBoard;
-  };
+  }
 
   setTiles(tiles) {
     this.tiles = tiles;
-  };
+  }
 
   create() {
     const r = this.rows;
@@ -68,10 +68,10 @@ export class Board {
     this.setTiles(arrayForBoard);
 
     return this;
-  };
+  }
 
   toString() {
     return `${this.rows} x ${this.cols}`;
-  };
+  }
 
 }

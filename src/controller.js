@@ -1,7 +1,5 @@
 'use strict';
 
-import { Tile } from "./model";
-
 export class Controller {
 
   constructor(conf) {

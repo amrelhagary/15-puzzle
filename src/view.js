@@ -1,12 +1,11 @@
 'use strict';
 
 import { Tile } from "./model";
-import { Controller } from './controller';
 
 export class BoardView {
 
   constructor(targetElement) {
-    self = this;
+    window.BoardView = this;
     this.element = targetElement;
   }
 
@@ -25,8 +24,6 @@ export class BoardView {
 
       for(let j = 0; j < board.cols; j++) {
         
-        
-        let td = null;
         let v = board.tiles[i][j].value;
         let e = document.createElement('td');
         if( v == 0 ) {
@@ -46,7 +43,7 @@ export class BoardView {
           throw 'no controller associate with view';
         }
 
-        e.addEventListener('click', self.moveThisTile)
+        e.addEventListener('click', window.BoardView.moveThisTile)
         tr.appendChild(e);
       }
 
@@ -59,13 +56,13 @@ export class BoardView {
       this.element.appendChild(tableGrid);
     }
 
-  };
+  }
 
   moveThisTile(e) {
     let v = e.target.getAttribute('v');
     let x = e.target.getAttribute('x');
     let y = e.target.getAttribute('y');
     let tile = new Tile(v, x, y);
-    self.controller.moveThisTile(tile);
+    window.BoardView.controller.moveThisTile(tile);
   }
 }

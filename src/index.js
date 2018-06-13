@@ -27,5 +27,5 @@ try {
 
     controller.startGame();
 } catch(e) {
-    console.error(e);
+    alert(e);
 }
