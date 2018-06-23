@@ -26,7 +26,8 @@
     "dev": "webpack-dev-server --config conf/webpack.dev.js",
     "build": "webpack --env=prod --progress --profile --colors",
     "lint": "eslint ./src/**.js",
-    "test": "./node_modules/mocha/bin/mocha  --compilers js:babel-core/register"
+    "test": "./node_modules/mocha/bin/mocha  --compilers js:babel-core/register",
+    "postinstall": "npm run build"
   },
   "devDependencies": {
     "babel-core": "6.26.0",
